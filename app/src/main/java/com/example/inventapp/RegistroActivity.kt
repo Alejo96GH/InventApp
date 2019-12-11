@@ -5,6 +5,7 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.ArrayAdapter
 import android.widget.DatePicker
 import android.widget.EditText
 import android.widget.Toast
@@ -35,6 +36,12 @@ class RegistroActivity : AppCompatActivity() {
             sexo = getString(R.string.femenino)
         }
 
+        val adapter = ArrayAdapter.createFromResource( this, R.array.city_list, android.R.layout.simple_spinner_item)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        city_spinner.adapter = adapter
+
+
+
         val dateSetListener = object : DatePickerDialog.OnDateSetListener{
             override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
                 cal.set(Calendar.YEAR, year)
@@ -48,6 +55,7 @@ class RegistroActivity : AppCompatActivity() {
 
         }
 
+
         bt_showPicker.setOnClickListener {
             DatePickerDialog(
                 this,
@@ -59,6 +67,7 @@ class RegistroActivity : AppCompatActivity() {
         }
 
 
+
         bt_registrar.setOnClickListener {
             val nombre :String = et_nombre.text.toString()
             val correo :String = et_correo.text.toString()
@@ -66,11 +75,14 @@ class RegistroActivity : AppCompatActivity() {
             val password :String = et_password.text.toString()
             val reppassword :String = et_reppassword.text.toString()
             var pasatiempos = EMPTY
+            var ciudad = city_spinner.selectedItem.toString()
 
             if (cb_cine.isChecked) pasatiempos = pasatiempos + SPACE + getString(R.string.cine)
             if (cb_gimansio.isChecked) pasatiempos = pasatiempos + SPACE + getString(R.string.gimnasio)
             if (cb_leer.isChecked) pasatiempos = pasatiempos + SPACE + getString(R.string.leer)
             if (cb_series.isChecked) pasatiempos = pasatiempos + SPACE + getString(R.string.series)
+
+
 
 
 
@@ -87,13 +99,14 @@ class RegistroActivity : AppCompatActivity() {
                 Toast.makeText( this, "Debe digitar todos los campos", Toast.LENGTH_SHORT).show()
             } else {
 
-            tv_resultado.text = getString(R.string.nombre_lb) + nombre + INTERLIN +
-                    getString(R.string.correo) + correo + INTERLIN +
-                    getString(R.string.telefono) + telefono + INTERLIN +
-                    getString(R.string.password) + password + INTERLIN+
-                    getString(R.string.sexo) + sexo + INTERLIN +
-                    getString(R.string.pasatiempos) + pasatiempos + INTERLIN +
-                    getString(R.string.fecha_nacimiento) + SPACE + fecha
+            tv_resultado.text = getString(R.string.nombre_lb)+ SPACE  + nombre + INTERLIN +
+                    getString(R.string.correo_lb)+ SPACE  + correo + INTERLIN +
+                    getString(R.string.telefono_lb)+ SPACE  + telefono + INTERLIN +
+                    getString(R.string.contraseña_lb)+ SPACE  + password + INTERLIN+
+                    getString(R.string.sexo_lb)+ SPACE  + sexo + INTERLIN +
+                    getString(R.string.pasatiempo_lb) + SPACE + pasatiempos + INTERLIN +
+                    getString(R.string.fecha_nacimiento) + SPACE + fecha + INTERLIN +
+                    getString(R.string.ciudad_lb) + SPACE + ciudad
         }}
     }
 }

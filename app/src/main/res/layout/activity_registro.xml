@@ -109,6 +109,14 @@
         android:layout_height="wrap_content"
         android:id="@+id/bt_registrar"
         android:text="@string/registrar"/>
+
+    <Spinner
+        android:id="@+id/city_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/city_list"
+        />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

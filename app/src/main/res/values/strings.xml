@@ -17,10 +17,22 @@
     <string name="gimnasio">Gimnasio</string>
     <string name="genero">Genero</string>
     <string name="msg_error_campos_vacios">Debe digitar todos los campos</string>
-    <string name="nombre_lb">nombre:</string>
+    <string name="nombre_lb">Nombre:</string>
+    <string name="correo_lb">Correo:</string>
+    <string name="telefono_lb">Telefono:</string>
+    <string name="contraseña_lb">Contraseña:</string>
+    <string name="pasatiempo_lb">Pasatiempo:</string>
     <string name="correo">correo:</string>
-    <string name="sexo">Sexo:</string>
+    <string name="sexo_lb">Sexo:</string>
+    <string name="ciudad_lb">Ciudad:</string>
+    <string name="sexo">sexo</string>
     <string name="pasatiempos">pasatiempos:</string>
     <string name="fecha_nacimiento">Fecha de nacimiento</string>
-
+    <string-array name="city_list">
+        <item>Bogotá</item>
+        <item>Medellín</item>
+        <item>Cali</item>
+        <item>Manizales</item>
+        <item>Santa Marta</item>
+    </string-array>
 </resources>
